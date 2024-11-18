@@ -197,7 +197,7 @@ namespace MastermindPE
             timer.Start();
         }
 
-        //stopt de timer na 10sec
+        //stopt de timer
         private void StopCountDown()
         {
             
