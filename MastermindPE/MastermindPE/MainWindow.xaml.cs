@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,8 @@ namespace MastermindPE
         private int score;
 
         private int attempts;
+
+
 
         public MainWindow()
         {
@@ -111,6 +114,8 @@ namespace MastermindPE
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Title = $"Poging: { string.Join(",", attempts)}";
+
+            codeTextBox.Text = $"{ string.Join(",", secretCode)}";  // werkt niet
         }
 
         private void PopulateComboBoxes()
@@ -140,6 +145,10 @@ namespace MastermindPE
             score = 0;
             ScoreText.Text = $"Score: {score}";
             ResetLabelBorders();
+
+            
+
+            
         }
 
         private void ResetLabelBorders()
@@ -149,6 +158,11 @@ namespace MastermindPE
                 Label label = (Label)FindName($"Label{i}");
                 label.BorderBrush = Brushes.Transparent;
             }
+        }
+
+        private void toggledebug()
+        {
+
         }
 
        

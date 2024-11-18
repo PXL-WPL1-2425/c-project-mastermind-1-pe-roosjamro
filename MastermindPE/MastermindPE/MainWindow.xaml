@@ -26,6 +26,7 @@
         <Button Name="CheckCode" Content="Valideer Code" Width="100" Margin="0,20,0,0" HorizontalAlignment="Center" Click="CheckCode_Click"/>
 
         <TextBlock x:Name="ScoreText" Text="Score: 0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+        <TextBox Name="codeTextBox" HorizontalAlignment="center" Width="311" />
 
     </StackPanel>
 </Window>
