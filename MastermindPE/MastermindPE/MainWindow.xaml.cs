@@ -116,7 +116,10 @@ namespace MastermindPE
 
             attempts++;
 
-            timer.Stop();
+            if (CheckCode == clicked)
+            {
+                timer.Start();
+            }
 
         }
 
@@ -187,10 +190,17 @@ namespace MastermindPE
         {
 
         }
-
+        
+        //start de timer
         private void StartCountDown()
         {
             timer.Start();
+        }
+
+        //stopt de timer na 10sec
+        private void StopCountDown()
+        {
+            
         }
 
     }
