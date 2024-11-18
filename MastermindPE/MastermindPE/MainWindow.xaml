@@ -1,0 +1,31 @@
+﻿<Window x:Class="MastermindPE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MastermindPE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <StackPanel Margin="20">
+        <TextBlock Text="Mastermind Game" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <ComboBox x:Name="ComboBox1" Width="50" SelectionChanged="ComboBox1_SelectionChanged"/>
+            <ComboBox x:Name="ComboBox2" Width="50" SelectionChanged="ComboBox1_SelectionChanged"/>
+            <ComboBox x:Name="ComboBox3" Width="50" SelectionChanged="ComboBox1_SelectionChanged"/>
+            <ComboBox x:Name="ComboBox4" Width="50" SelectionChanged="ComboBox1_SelectionChanged"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Label x:Name="Label1" Width="50" Height="50" BorderThickness="2"/>
+            <Label x:Name="Label2" Width="50" Height="50" BorderThickness="2"/>
+            <Label x:Name="Label3" Width="50" Height="50" BorderThickness="2"/>
+            <Label x:Name="Label4" Width="50" Height="50" BorderThickness="2"/>
+        </StackPanel>
+
+        <Button Name="CheckCode" Content="Valideer Code" Width="100" Margin="0,20,0,0" HorizontalAlignment="Center" Click="CheckCode_Click"/>
+
+        <TextBlock x:Name="ScoreText" Text="Score: 0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+    </StackPanel>
+</Window>
