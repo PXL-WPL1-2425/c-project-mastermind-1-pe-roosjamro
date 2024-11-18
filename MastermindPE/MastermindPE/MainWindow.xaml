@@ -27,6 +27,7 @@
 
         <TextBlock x:Name="ScoreText" Text="Score: 0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
         <TextBox Name="codeTextBox" HorizontalAlignment="center" Width="311" />
+        <TextBox Name="timerTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Width="79" />
 
     </StackPanel>
 </Window>

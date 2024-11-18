@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MastermindPE
 {
@@ -27,13 +28,29 @@ namespace MastermindPE
 
         private int attempts;
 
-
+        DispatcherTimer timer;
+        DateTime clicked;
+        TimeSpan interval = new TimeSpan(0, 0, 10);
 
         public MainWindow()
         {
             InitializeComponent();
             secretCode = GenerateRandomCode();
             PopulateComboBoxes();
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(1);
+            timer.Tick += Timer_Tick;
+
+            StartCountDown();
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            interval = DateTime.Now - clicked;
+
+            timerTextBox.Text = $"{interval.Seconds}:{interval.Milliseconds.ToString().PadLeft(2, '0')}";
         }
 
         private void CheckCode_Click(object sender, RoutedEventArgs e)
@@ -97,6 +114,10 @@ namespace MastermindPE
                 StartGame();
             }
 
+            attempts++;
+
+            timer.Stop();
+
         }
 
         private List<string> GenerateRandomCode()
@@ -115,7 +136,9 @@ namespace MastermindPE
         {
             Title = $"Poging: { string.Join(",", attempts)}";
 
-            codeTextBox.Text = $"{ string.Join(",", secretCode)}";  // werkt niet
+            codeTextBox.Text = $"{ string.Join(",", secretCode)}";
+
+           
         }
 
         private void PopulateComboBoxes()
@@ -146,9 +169,9 @@ namespace MastermindPE
             ScoreText.Text = $"Score: {score}";
             ResetLabelBorders();
 
-            
+           
 
-            
+
         }
 
         private void ResetLabelBorders()
@@ -165,6 +188,10 @@ namespace MastermindPE
 
         }
 
-       
+        private void StartCountDown()
+        {
+            timer.Start();
+        }
+
     }
 }
